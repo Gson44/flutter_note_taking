@@ -69,9 +69,9 @@ class _AddNotesWidget extends State<AddNotesWidget> {
           children: [
             Text("Add Notes",
                 style: TextStyle(fontSize: 22, color: Colors.amber)),
-            SizedBox(width: 50),
+            SizedBox(width: 10),
             Container(
-                width: 300,
+                width: 250,
                 child: TextFormField(
                   controller: noteController,
                   style: TextStyle(color: Colors.pink.shade200),

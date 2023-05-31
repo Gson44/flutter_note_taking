@@ -31,7 +31,9 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(title: Text("Login")),
-      body: CustomWidgetState(),
+      body: SingleChildScrollView(
+        child: CustomWidgetState(),
+      ),
     );
   }
 }
@@ -71,81 +73,57 @@ class _CustomWidget extends State<CustomWidgetState> {
       }
     }
 
-    // rest of your build function...
-
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Email",
-              style: TextStyle(fontSize: 28, color: Colors.amber),
+    return Container(
+      padding: EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          TextField(
+            style: TextStyle(color: Colors.pink.shade200),
+            controller: emailController,
+            decoration: InputDecoration(
+              labelText: "Enter Email",
+              labelStyle: TextStyle(color: Colors.pink.shade200),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.pink.shade200),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.pink.shade200),
+              ),
             ),
-            SizedBox(width: 72),
-            Container(
-                width: 300,
-                child: TextFormField(
-                  style: TextStyle(color: Colors.pink.shade200),
-                  controller: emailController,
-                  decoration: InputDecoration(
-                    labelText: "Enter Email",
-                    labelStyle: TextStyle(color: Colors.pink.shade200),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.pink.shade200),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.pink.shade200),
-                    ),
-                  ),
-                )),
-          ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Password",
-              style: TextStyle(fontSize: 28, color: Colors.amber),
+          ),
+          SizedBox(height: 16.0),
+          TextField(
+            controller: passwordController,
+            style: TextStyle(color: Colors.pink.shade200),
+            decoration: InputDecoration(
+              labelText: "Enter Password",
+              labelStyle: TextStyle(color: Colors.pink.shade200),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.pink.shade200),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.pink.shade200),
+              ),
             ),
-            SizedBox(width: 20),
-            Container(
-                width: 300,
-                child: TextFormField(
-                  controller: passwordController,
-                  style: TextStyle(color: Colors.pink.shade200),
-                  decoration: InputDecoration(
-                    labelText: "Enter Password",
-                    labelStyle: TextStyle(color: Colors.pink.shade200),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.pink.shade200),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.pink.shade200),
-                    ),
-                  ),
-                  obscureText: true,
-                )),
-          ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(onPressed: signIn, child: Text("Sign In")),
-            SizedBox(
-              width: 20,
-            ),
-            ElevatedButton(onPressed: SignUpScreen, child: Text("Sign Up"))
-          ],
-        )
-      ],
+            obscureText: true,
+          ),
+          SizedBox(height: 16.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: signIn,
+                child: Text("Sign In"),
+              ),
+              SizedBox(width: 16.0),
+              ElevatedButton(
+                onPressed: SignUpScreen,
+                child: Text("Sign Up"),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
